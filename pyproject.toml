@@ -9,8 +9,15 @@ description = "OpenEnv hiring pipeline environment with FastAPI serving and infe
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "openenv-core>=0.2.0",
     "pydantic>=2.0.0",
     "openai>=1.0.0",
     "fastapi>=0.100.0",
     "uvicorn>=0.23.0",
 ]
+
+[project.scripts]
+server = "my_env:main"
+
+[tool.setuptools]
+py-modules = ["my_env", "inference"]
