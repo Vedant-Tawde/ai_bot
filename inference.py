@@ -78,7 +78,8 @@ def run_task(task_name: str, task_file: str):
             action_data = json.loads(raw_action)
             action_obj = Action(**action_data)
         except Exception as e:
-            error_msg = f"'{str(e).replace('\"', '').replace('\\', '')}'"
+            sanitized_error = str(e).replace('"', "").replace("\\", "")
+            error_msg = f"'{sanitized_error}'"
 
         obs, reward, done = env.step(action_obj)
         steps += 1
