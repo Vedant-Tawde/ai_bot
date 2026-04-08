@@ -1,0 +1,19 @@
+{
+  "name": "full_hiring_pipeline_hard",
+  "description": "Full multi-step hiring pipeline: screen, interview, evaluate, and decide for a Data Science Lead.",
+  "config": {
+    "candidate_profile": {
+      "name": "Carol Williams",
+      "skills": ["Python", "TensorFlow", "Spark", "Statistics", "Leadership"],
+      "experience_years": 8,
+      "education": "PhD in Computer Science",
+      "projects": ["Fraud Detection System", "Real-time Recommendation Engine"]
+    },
+    "job_description": {
+      "role": "Data Science Lead",
+      "required_skills": ["Python", "TensorFlow", "Spark"],
+      "min_experience": 7
+    },
+    "initial_stage": "screening"
+  }
+}

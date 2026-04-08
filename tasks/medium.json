@@ -1,0 +1,19 @@
+{
+  "name": "interview_evaluation_medium",
+  "description": "Conduct and evaluate an interview for a Senior Backend Developer.",
+  "config": {
+    "candidate_profile": {
+      "name": "Bob Johnson",
+      "skills": ["Go", "Kubernetes", "Redis", "PostgreSQL"],
+      "experience_years": 6,
+      "education": "Masters in Software Engineering",
+      "projects": ["High-throughput Microservices"]
+    },
+    "job_description": {
+      "role": "Senior Backend Developer",
+      "required_skills": ["Go", "Kubernetes"],
+      "min_experience": 5
+    },
+    "initial_stage": "screening"
+  }
+}

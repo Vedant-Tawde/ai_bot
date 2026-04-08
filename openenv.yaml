@@ -1,0 +1,78 @@
+name: ai-interview-screening-agent
+version: "1.0.0"
+description: >
+  A real-world hiring pipeline simulation where an AI agent screens resumes,
+  conducts interviews, evaluates answers, and makes final hiring decisions.
+  Served via FastAPI for remote interaction and automated validation.
+
+entry_point: my_env.py
+environment_class: AIInterviewEnv
+image: ai-interview-agent
+
+tasks:
+  - name: resume_screening_easy
+    file: tasks/easy.json
+    difficulty: easy
+    description: "One-step resume screening decision for a qualified AI Engineer."
+    max_steps: 5
+
+  - name: interview_evaluation_medium
+    file: tasks/medium.json
+    difficulty: medium
+    description: "Multi-step interview including question, answer, and evaluation."
+    max_steps: 10
+
+  - name: full_hiring_pipeline_hard
+    file: tasks/hard.json
+    difficulty: hard
+    description: "Full end-to-end hiring pipeline for a Data Science Lead."
+    max_steps: 20
+
+action_space:
+  - name: shortlist_candidate
+    description: "Advance candidate to interview."
+  - name: reject_candidate
+    description: "Reject candidate at screening."
+  - name: ask_question
+    description: "Ask a technical question."
+    fields:
+      - name: question
+        type: string
+        required: true
+  - name: evaluate_answer
+    description: "Score answer 0.0-1.0."
+    fields:
+      - name: evaluation_score
+        type: float
+        required: true
+  - name: hire_candidate
+    description: "Final hiring decision."
+  - name: reject_after_interview
+    description: "Final rejection after interview."
+
+observation_space:
+  - name: candidate_profile
+    type: object
+  - name: job_description
+    type: object
+  - name: conversation_history
+    type: list
+  - name: current_stage
+    type: string
+  - name: step_count
+    type: integer
+  - name: last_answer
+    type: string
+  - name: instruction
+    type: string
+
+reward:
+  min: -0.5
+  max: 1.0
+  description: "Dense reward summing to ~2.0-2.5 for a perfect trajectory."
+
+docker:
+  dockerfile: Dockerfile
+
+inference:
+  script: inference.py

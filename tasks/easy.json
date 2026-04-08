@@ -1,0 +1,19 @@
+{
+  "name": "resume_screening_easy",
+  "description": "Screen a highly qualified candidate for an AI Engineer role.",
+  "config": {
+    "candidate_profile": {
+      "name": "Alice Smith",
+      "skills": ["Python", "PyTorch", "NLP", "SQL"],
+      "experience_years": 4,
+      "education": "BS in Computer Science",
+      "projects": ["Transformers for Sentiment Analysis"]
+    },
+    "job_description": {
+      "role": "AI Engineer",
+      "required_skills": ["Python", "PyTorch"],
+      "min_experience": 2
+    },
+    "initial_stage": "screening"
+  }
+}
