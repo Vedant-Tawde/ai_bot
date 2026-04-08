@@ -1,3 +1,12 @@
+---
+title: ai_bot
+emoji: "🤖"
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+pinned: false
+---
+
 # AI Interview Screening Agent — OpenEnv Submission
 
 A production-ready OpenEnv environment simulating a multi-stage hiring pipeline.
