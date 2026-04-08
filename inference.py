@@ -95,8 +95,8 @@ def run_task(task_name: str, task_file: str):
 
     # Calculate final score and success
     success = rewards[-1] > 0 if rewards else False
-    score = sum(rewards) / len(rewards) if rewards else 0.0
-    score = max(0.0, min(1.0, score))
+    score = sum(rewards) / len(rewards) if rewards else 0.5
+    score = max(0.01, min(0.99, score))
     
     rewards_str = ",".join(f"{r:.2f}" for r in rewards)
 
