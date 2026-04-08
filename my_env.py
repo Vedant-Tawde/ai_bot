@@ -194,6 +194,14 @@ class AIInterviewEnv:
 app = FastAPI()
 env_instance = AIInterviewEnv()
 
+@app.get("/")
+async def root():
+    return {
+        "name": "ai-interview-screening-agent",
+        "status": "ok",
+        "endpoints": ["/reset", "/step", "/state"],
+    }
+
 @app.post("/reset")
 async def reset(task_config: Dict[str, Any] = None):
     obs = env_instance.reset(task_config)
@@ -213,4 +221,5 @@ async def state():
     return env_instance.state().model_dump()
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    port = int(os.environ.get("PORT", "8080"))
+    uvicorn.run(app, host="0.0.0.0", port=port)
